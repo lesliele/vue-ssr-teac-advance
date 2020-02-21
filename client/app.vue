@@ -1,13 +1,16 @@
 <!--
  * @Author: your name
  * @Date: 2020-02-10 14:54:25
- * @LastEditTime : 2020-02-11 16:08:57
+ * @LastEditTime: 2020-02-20 11:24:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue-ssr-tech\src\app.vue
  -->
 <template>
     <div id="box">
+        <div>
+            <div ref="x">xxx    </div><div ref="f">fffffff</div>
+        </div>
         <Header></Header>
         <Todo></Todo>
         <Footer></Footer>
@@ -16,9 +19,11 @@
 </template>
 
 <script>
-import Header from '@/todo/header.vue';
-import Footer from '@/todo/footer.jsx';
-import Todo from '@/todo/todo.vue';
+import Header from './layout/header.vue';
+import Footer from './layout/footer.jsx';
+import Todo from './views/todo/todo.vue';
+
+console.log(Header.__docs); //自定义块
 
 export default {
     components: {
@@ -30,6 +35,9 @@ export default {
         return {
             
         }
+    },
+    mounted() {
+        console.log(this.$refs.x.innerHTML+this.$refs.f.innerHTML)
     }
 }
 </script>
