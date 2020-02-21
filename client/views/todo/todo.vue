@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-02-11 16:05:51
- * @LastEditTime : 2020-02-11 18:05:43
- * @LastEditors  : Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue-ssr-tech\src\todo\todo.vue
- -->
 <template>
     <div class="todo">
         <input

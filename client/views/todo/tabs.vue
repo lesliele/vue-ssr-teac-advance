@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-02-11 16:33:02
- * @LastEditTime : 2020-02-11 18:04:55
- * @LastEditors  : Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue-ssr-tech\src\todo\tabs.vue
- -->
 <template>
     <div class="tab_wrapper">
         <span>{{unFinishTodoLen}} item left</span>

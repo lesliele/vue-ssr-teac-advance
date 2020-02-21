@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-02-10 14:54:25
- * @LastEditTime: 2020-02-20 11:24:35
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue-ssr-tech\src\app.vue
- -->
 <template>
     <div id="box">
         <div>
