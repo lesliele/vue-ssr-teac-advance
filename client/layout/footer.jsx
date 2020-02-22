@@ -7,6 +7,9 @@ export default {
       name: 'canvas'
     }
   },
+  components: {
+    Spec
+  },
   render () {
     const inputAttrs = {
       type: 'number',

@@ -13,34 +13,34 @@
 </template>
 <script>
 export default {
-    props: {
-        filter: {
-            type: String,
-            required: true
-        },
-        todos: {
-            type: Array,
-            required: true
-        }
+  props: {
+    filter: {
+      type: String,
+      required: true
     },
-    data() {
-        return {
-            states: ['all', 'actived', 'completed']
-        }
-    },
-    computed: {
-        unFinishTodoLen() {
-            return this.todos.filter(item => !item.completed).length;
-        }
-    },
-    methods: {
-        toggleState(state) {
-            this.$emit('toggle', state);
-        },
-        clearAll() {
-
-        }
+    todos: {
+      type: Array,
+      required: true
     }
+  },
+  data () {
+    return {
+      states: ['all', 'actived', 'completed']
+    }
+  },
+  computed: {
+    unFinishTodoLen () {
+      return this.todos.filter(item => !item.completed).length
+    }
+  },
+  methods: {
+    toggleState (state) {
+      this.$emit('toggle', state)
+    },
+    clearAll () {
+
+    }
+  }
 }
 </script>
 <style lang="stylus" scoped>

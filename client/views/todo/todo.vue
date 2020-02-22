@@ -12,45 +12,45 @@
 </template>
 
 <script>
-import Item from './item.vue';
-import Tabs from './tabs.vue';
-let id = 0;
+import Item from './item.vue'
+import Tabs from './tabs.vue'
+let id = 0
 export default {
-    components: {
-        Item,
-        Tabs
-    },
-    data() {
-        return {
-            todos: [],
-            filter: 'all'
-        }
-    },
-    computed: {
-        filterTodo() {
-            if (this.filter == 'all') {
-                return this.todos;
-            }
-            let completed = this.filter == 'completed';
-            return this.todos.filter(item => completed == item.completed);
-        }
-    },
-    methods: {
-        addTodo(e) {
-            this.todos.unshift({
-                id: id++,
-                completed: false,
-                content: e.target.value
-            });
-            e.target.value = '';
-        },
-        handleDel(id) {
-            this.todos.splice(this.todos.findIndex(item => item.id === id), 1)
-        },
-        handelToggle(state) {
-            this.filter = state;
-        }
+  components: {
+    Item,
+    Tabs
+  },
+  data () {
+    return {
+      todos: [],
+      filter: 'all'
     }
+  },
+  computed: {
+    filterTodo () {
+      if (this.filter === 'all') {
+        return this.todos
+      }
+      const completed = this.filter === 'completed'
+      return this.todos.filter(item => completed === item.completed)
+    }
+  },
+  methods: {
+    addTodo (e) {
+      this.todos.unshift({
+        id: id++,
+        completed: false,
+        content: e.target.value
+      })
+      e.target.value = ''
+    },
+    handleDel (id) {
+      this.todos.splice(this.todos.findIndex(item => item.id === id), 1)
+    },
+    handelToggle (state) {
+      this.filter = state
+    }
+  }
 }
 </script>
 
@@ -59,7 +59,7 @@ export default {
     width 500px
     height 400px
     background white
-    margin 0 auto    
+    margin 0 auto
     padding 10px
     .input_todo{
         display block

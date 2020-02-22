@@ -1,14 +1,17 @@
 <template>
     <header :class="$style.mainHeader">
         <h1>leslie cheung</h1>
-    </header>    
+    </header>
 </template>
 
 <script>
 export default {
-    mounted() {
-        console.log(this.$style)
-    }
+  mounted () {
+
+  },
+  created () {
+
+  }
 }
 </script>
 
@@ -23,5 +26,5 @@ export default {
 </style>
 
 <docs>
-leslie cheung 
+leslie cheung
 </docs>

@@ -11,26 +11,26 @@
 </template>
 
 <script>
-import Header from './layout/header.vue';
-import Footer from './layout/footer.jsx';
-import Todo from './views/todo/todo.vue';
+import Header from './layout/header.vue'
+import Footer from './layout/footer.jsx'
+import Todo from './views/todo/todo.vue'
 
-console.log(Header.__docs); //自定义块
+console.log(Header.__docs) // 自定义块
 
 export default {
-    components: {
-        Header,
-        Footer,
-        Todo
-    },
-    data() {
-        return {
-            
-        }
-    },
-    mounted() {
-        console.log(this.$refs.x.innerHTML+this.$refs.f.innerHTML)
+  components: {
+    Header,
+    Footer,
+    Todo
+  },
+  data () {
+    return {
+
     }
+  },
+  mounted () {
+    console.log(this.$refs.x.innerHTML + this.$refs.f.innerHTML)
+  }
 }
 </script>
 
@@ -46,7 +46,7 @@ export default {
         left 0
         top 0
         background-color white
-        opacity 0 
+        opacity 0
         width 100%
         height 100%
     }
