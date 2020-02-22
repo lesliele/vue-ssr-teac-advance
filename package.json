@@ -14,9 +14,9 @@
     "clean": "rimraf dist",
     "lint": "eslint --ext .vue --ext .js --ext .jsx client/",
     "lint-fix": "eslint --fix --ext .vue --ext .js --ext .jsx client/",
+    "pre-commit": "echo 'husky' && npm run lint",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js"
   },
-  "pre-commit": "echo 'husky' && npm run lint",
   "author": "",
   "license": "ISC",
   "dependencies": {
