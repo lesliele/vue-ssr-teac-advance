@@ -15,6 +15,7 @@
     "lint": "eslint --ext .vue --ext .js --ext .jsx client/",
     "lint-fix": "eslint --fix --ext .vue --ext .js --ext .jsx client/",
     "pre-commit": "echo 'husky' && npm run lint",
+    "pratice": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.pratice.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js"
   },
   "author": "",
