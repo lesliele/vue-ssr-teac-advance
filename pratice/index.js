@@ -4,4 +4,6 @@
 // import './computed/index'
 // import './directive/index'
 // import './component/index'
-import './extend/index'
+// import './extend/index'
+// import './v-model/index'
+import './advance-last/index'
