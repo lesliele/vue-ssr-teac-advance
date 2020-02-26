@@ -1,5 +1,5 @@
 <template>
-    <header :class="$style.mainHeader">
+    <header class="header">
         <h1>leslie cheung</h1>
     </header>
 </template>
@@ -15,8 +15,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" module>
-.main-header{
+<style lang="stylus" scoped>
+.header{
     h1{
         font-size: 46px
         color: red
@@ -24,7 +24,3 @@ export default {
     }
 }
 </style>
-
-<docs>
-leslie cheung
-</docs>

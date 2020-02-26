@@ -7,7 +7,9 @@ const merge = require('webpack-merge')
 const baseConfig = require('./webpack.config.base.js')
 
 const defaultPlugins = [
-  new HtmlWebpackPlugin(),
+  new HtmlWebpackPlugin({
+    template: path.join(__dirname, 'template.html')
+  }),
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: isDev ? '"development"' : '"production"'
@@ -52,7 +54,10 @@ if (isDev) {
       overlay: {
         errors: true
       },
-      hot: true
+      hot: true,
+      historyApiFallback: {
+        index: '/public/index.html' // 由于在服务器中不存在路由的映射关系，所以找不到对应的路径导致报错,需要重定向到index.html(即app.vue)
+      }
     },
     plugins: [
       ...defaultPlugins,

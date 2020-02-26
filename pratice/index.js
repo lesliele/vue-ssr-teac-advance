@@ -6,4 +6,5 @@
 // import './component/index'
 // import './extend/index'
 // import './v-model/index'
-import './advance-last/index'
+// import './advance-last/index'
+import './render/index'

@@ -1,10 +1,11 @@
 <template>
     <div id="box">
-        <div>
-            <div ref="x">xxx    </div><div ref="f">fffffff</div>
-        </div>
         <Header></Header>
-        <Todo></Todo>
+        <router-link to="/app">app</router-link>
+        <router-link to="/login">login</router-link>
+        <router-link to="/login/extract">login extract</router-link>
+
+        <router-view></router-view>
         <Footer></Footer>
         <!-- <div class="inner"></div> -->
     </div>
@@ -15,7 +16,7 @@ import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
 import Todo from './views/todo/todo.vue'
 
-console.log(Header.__docs) // 自定义块
+// console.log(Header.__docs) // 自定义块
 
 export default {
   components: {
@@ -29,7 +30,7 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$refs.x.innerHTML + this.$refs.f.innerHTML)
+    // console.log(this.$refs.x.innerHTML + this.$refs.f.innerHTML)
   }
 }
 </script>
