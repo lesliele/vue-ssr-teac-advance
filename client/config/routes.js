@@ -7,8 +7,8 @@ export default [
     redirect: '/app'
   },
   {
-    path: '/app/:id',
-    // path: '/app',
+    // path: '/app/:id',
+    path: '/app',
     // props: true, // 在组件作为props传进去
     // props: {
     //   id: '6611'

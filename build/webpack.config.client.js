@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.config.base.js')
+const VueServerPlugin = require('vue-server-renderer/client-plugin')
 
 const defaultPlugins = [
   new HtmlWebpackPlugin({
@@ -62,7 +63,8 @@ if (isDev) {
     plugins: [
       ...defaultPlugins,
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin()
+      new webpack.NoEmitOnErrorsPlugin(),
+      new VueServerPlugin()
     ]
   })
 } else {
