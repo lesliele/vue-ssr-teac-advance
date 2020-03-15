@@ -17,6 +17,9 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  metaInfo: {
+    title: 'dk todo'
+  },
   beforeRouteEnter (to, from, next) {
     // 检测数据，比如params中的id，是否有效，无效则弹出提示
     console.log('todo enter')

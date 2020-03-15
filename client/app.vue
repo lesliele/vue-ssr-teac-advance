@@ -35,6 +35,9 @@ import Footer from './layout/footer.jsx'
 // console.log(Header.__docs) // 自定义块
 
 export default {
+  metaInfo: {
+    title: 'dk app'
+  },
   components: {
     Header,
     Footer

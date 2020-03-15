@@ -14,12 +14,12 @@ const isDev = process.env.NODE_ENV === 'development'
 const config = {
   mode: process.env.NODE_ENV || 'production',
   entry: {
-    main: path.join(__dirname, '../client/main.js')
+    main: path.join(__dirname, '../client/client-entry.js')
   },
   output: {
     path: path.join(__dirname, '../dist'),
     filename: '[name].[hash:8].js',
-    publicPath: '/public/'
+    publicPath: 'http://127.0.0.1:8088/public/'
   },
   module: {
     rules: [

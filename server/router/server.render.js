@@ -8,12 +8,16 @@ module.exports = async (ctx, renderer, template) => {
 
   try {
     const appString = await renderer.renderToString(context);
+    const {
+      title
+    } = context.meta.inject();
     // 客户端激活
     const html = ejs.render(template, {
       appString,
       // 页面样式
       style: context.renderStyles(),
-      scripts: context.renderScripts()
+      scripts: context.renderScripts(),
+      title: title.text()
     });
 
     ctx.response.body = html;

@@ -3,3 +3,11 @@
     this is login page
   </div>
 </template>
+
+<script>
+export default {
+  metaInfo: {
+    title: 'dk login'
+  }
+}
+</script>
