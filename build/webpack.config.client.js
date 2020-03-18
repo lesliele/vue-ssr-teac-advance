@@ -25,18 +25,32 @@ if (isDev) {
     module: {
       rules: [
         {
+          test: /\.(gif|jpg|jpeg|png|svg)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 1024,
+                name: 'resources/[path][name].[ext]'
+              }
+            }
+          ]
+        },
+        {
           test: /\.styl(us)?$/,
           use: [
             'vue-style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                modules: {
-                  localIdentName: '[path][name]__[local]--[hash:base64:5]'
-                },
-                localsConvention: 'camelCase'
-              }
-            },
+            // css modules
+            // {
+            //   loader: 'css-loader',
+            //   options: {
+            //     modules: {
+            //       localIdentName: '[path][name]__[local]--[hash:base64:5]'
+            //     },
+            //     localsConvention: 'camelCase'
+            //   }
+            // },
+            'css-loader',
             {
               loader: 'postcss-loader',
               options: {
@@ -70,10 +84,24 @@ if (isDev) {
 } else {
   config = merge(baseConfig, {
     output: {
-      filename: '[name].[chunkhash:8].js'
+      filename: '[name].[chunkhash:8].js',
+      publicPath: '/public/'
     },
     module: {
       rules: [
+        {
+          test: /\.(gif|jpg|jpeg|png|svg)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                publicPath: '/public/',
+                limit: 1024,
+                name: 'resources/[path][name].[ext]'
+              }
+            }
+          ]
+        },
         {
           test: /\.styl(us)?$/,
           use: [
@@ -112,7 +140,8 @@ if (isDev) {
       ...defaultPlugins,
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash:8].css'
-      })
+      }),
+      new VueServerPlugin()
     ]
   })
 }

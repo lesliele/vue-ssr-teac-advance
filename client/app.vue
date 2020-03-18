@@ -18,6 +18,7 @@
         <!-- <router-view name="extract"></router-view> -->
         <Footer></Footer>
         <!-- <div class="inner"></div> -->
+        <notification content="hello world"></notification>
     </div>
 </template>
 

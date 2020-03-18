@@ -17,6 +17,19 @@ module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
+        test: /\.(gif|jpg|jpeg|png|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              publicPath: '/public/',
+              limit: 1024,
+              name: 'resources/[path][name].[ext]'
+            }
+          }
+        ]
+      },
+      {
         test: /\.styl(us)?$/,
         use: [
           'vue-style-loader',

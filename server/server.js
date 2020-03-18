@@ -1,8 +1,9 @@
 const Koa = require('koa');
-const pageRouter = require('./router/dev-ssr');
 const app = new Koa();
 const send = require('koa-send');
 const path = require('path');
+let pageRouter;
+const staticRouter = require('./router/static');
 const isDev = process.env.NODE_ENV === 'development';
 
 app.use(async (ctx, next) => {
@@ -28,6 +29,12 @@ app.use(async (ctx, next) => {
   }
 })
 
+if (isDev) {
+  pageRouter = require('./router/dev-ssr');
+} else {
+  pageRouter = require('./router/ssr.js');
+}
+app.use(staticRouter.routes()).use(staticRouter.allowedMethods());
 app.use(pageRouter.routes()).use(pageRouter.allowedMethods());
 
 const HOST = process.env.HOST || '0.0.0.0';

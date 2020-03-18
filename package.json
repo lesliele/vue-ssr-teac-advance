@@ -10,15 +10,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.config.client.js",
-    "build": "npm run clean && npm run build:client",
-    "clean": "rimraf dist",
+    "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.config.server.js",
+    "build": "npm run clean && npm run build:client && npm run build:server",
+    "clean": "rimraf public && rimraf server-build",
     "lint": "eslint --ext .vue --ext .js --ext .jsx client/",
     "lint-fix": "eslint --fix --ext .vue --ext .js --ext .jsx client/",
     "pre-commit": "echo 'husky' && npm run lint",
     "pratice": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.pratice.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
     "dev:server": "nodemon node server/server.js",
-    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\""
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "start": "cross-env NODE_ENV=production node server/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +29,7 @@
     "ejs": "^3.0.1",
     "koa": "^2.11.0",
     "koa-router": "^8.0.8",
+    "koa-static": "^5.0.0",
     "vue": "^2.6.11",
     "vue-meta": "^2.3.3",
     "vue-router": "^3.1.5",
