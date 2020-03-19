@@ -69,6 +69,9 @@ if (isDev) {
       overlay: {
         errors: true
       },
+      headers: {
+        'Access-Control-Allow-origin': '*'
+      },
       hot: true,
       historyApiFallback: {
         index: '/public/index.html' // 由于在服务器中不存在路由的映射关系，所以找不到对应的路径导致报错,需要重定向到index.html(即app.vue)

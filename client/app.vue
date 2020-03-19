@@ -18,7 +18,8 @@
         <!-- <router-view name="extract"></router-view> -->
         <Footer></Footer>
         <!-- <div class="inner"></div> -->
-        <notification content="hello world"></notification>
+        <!-- <notification content="hello world"></notification> -->
+        <button @click="handleClick">click</button>
     </div>
 </template>
 
@@ -74,7 +75,13 @@ export default {
   },
   methods: {
     ...mapMutations(['a/updateText']),
-    ...mapActions(['a/add'])
+    ...mapActions(['a/add']),
+    handleClick () {
+      this.$notify({
+        content: 'hello world',
+        btn: 'close'
+      })
+    }
   },
   mounted () {
     // console.log(this.$refs.x.innerHTML + this.$refs.f.innerHTML)
