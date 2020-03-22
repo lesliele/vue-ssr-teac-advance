@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="fade" @after-leave="afterLeave" @after-enter="afterEnter">
     <div class="notification" :style="style" v-show="isVisible">
       <span class="content">{{content}}</span>
       <a class="btn" @click="handleClose">{{btn}}</a>
@@ -21,7 +21,7 @@ export default {
   },
   data () {
     return {
-      isVisible: true
+      isVisible: false
     }
   },
   computed: {
@@ -33,7 +33,11 @@ export default {
     handleClose (e) {
       e.preventDefault();
       this.$emit('close')
-    }
+    },
+    afterLeave () {
+      this.$emit('closed');
+    },
+    afterEnter () {}
   }
 }
 </script>

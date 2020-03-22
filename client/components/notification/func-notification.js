@@ -22,6 +22,10 @@ export default {
     },
     clearTime () {
       if (this.timer) clearTimeout(this.timer);
+    },
+    afterEnter () {
+      // 动画完成后才计算高度
+      this.height = this.$el.offsetHeight;
     }
   },
   beforeDestroy () {
@@ -31,7 +35,8 @@ export default {
     return {
       verticalOffset: 0,
       autoClose: 3000,
-      timer: null
+      timer: null,
+      height: 0
     }
   }
 }

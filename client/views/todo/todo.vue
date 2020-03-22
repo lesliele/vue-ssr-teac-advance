@@ -7,14 +7,19 @@
             @keyup.enter="addTodo"
         />
         <Item :todo="todo" v-for="todo in filterTodo" :key="todo.id" @del="handleDel"></Item>
-        <Tabs :filter="filter" :todos="todos" @toggle="handelToggle"></Tabs>
+        <helper :filter="filter" :todos="todos" @toggle="handelToggle"></helper>
         <!-- <router-view/> -->
+        <tabs value="1">
+          <tab label="hello" index="1"></tab>
+          <tab index="2"><p slot="label">llallala</p></tab>
+          <tab label="world" index="3"><p slot="label">canvas</p></tab>
+        </tabs>
     </div>
 </template>
 
 <script>
 import Item from './item.vue'
-import Tabs from './tabs.vue'
+import Helper from './tabs.vue'
 let id = 0
 export default {
   metaInfo: {
@@ -46,7 +51,7 @@ export default {
   props: ['id'],
   components: {
     Item,
-    Tabs
+    Helper
   },
   data () {
     return {
