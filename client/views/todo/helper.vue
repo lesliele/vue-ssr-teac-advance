@@ -4,8 +4,7 @@
         <span
             v-for="state in states"
             :key="state"
-            :class="['tab', filter == state ? 'checked' : '']"
-            @click="toggleState(state)">
+            :class="['tab', filter == state ? 'checked' : '']">
             {{state}}
         </span>
         <button @click="clearAll">clear</button>
@@ -34,9 +33,6 @@ export default {
     }
   },
   methods: {
-    toggleState (state) {
-      this.$emit('toggle', state)
-    },
     clearAll () {
 
     }

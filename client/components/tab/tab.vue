@@ -1,6 +1,7 @@
 <script>
 export default {
   name: 'Tab',
+  // inject: ['value'],
   props: {
     index: {
       type: [Number, String],
@@ -12,7 +13,7 @@ export default {
   },
   computed: {
     active () {
-      return false;
+      return this.$parent.value === this.index;
     }
   },
   render () {
@@ -22,10 +23,18 @@ export default {
       active: this.active
     }
     return (
-      <li class={classNames}>
+      <li class={classNames} onClick={this.handleClick}>
         {tab}
       </li>
     )
+  },
+  methods: {
+    handleClick () {
+      this.$parent.handleChangeTab(this.index);
+    }
+  },
+  mounted () {
+    this.$parent.panes.push(this);
   }
 }
 </script>

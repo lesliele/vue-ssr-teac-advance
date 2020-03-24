@@ -7,19 +7,31 @@
             @keyup.enter="addTodo"
         />
         <Item :todo="todo" v-for="todo in filterTodo" :key="todo.id" @del="handleDel"></Item>
-        <helper :filter="filter" :todos="todos" @toggle="handelToggle"></helper>
+        <helper :filter="filter" :todos="todos"></helper>
         <!-- <router-view/> -->
-        <tabs value="1">
-          <tab label="hello" index="1"></tab>
-          <tab index="2"><p slot="label">llallala</p></tab>
-          <tab label="world" index="3"><p slot="label">canvas</p></tab>
+        <!-- <tabs :value="currentTab" @on-change="handleChange">
+          <tab label="hello" index="1">
+            <p>风继续吹 {{idx}}</p>
+          </tab>
+          <tab index="2">
+            <p slot="label">llallala</p>
+            <p>沉默是金</p>
+          </tab>
+          <tab label="world" index="3">
+            <p slot="label">canvas</p>
+            <p>共同度过</p>
+          </tab>
+        </tabs>
+        <input v-model="idx" placeholder="测试插槽内数据绑定问题"/> -->
+        <tabs :value="filter" @on-change="handleChange">
+          <tab v-for="item in states" :key="item" :label="item" :index="item"></tab>
         </tabs>
     </div>
 </template>
 
 <script>
 import Item from './item.vue'
-import Helper from './tabs.vue'
+import Helper from './helper.vue'
 let id = 0
 export default {
   metaInfo: {
@@ -56,7 +68,10 @@ export default {
   data () {
     return {
       todos: [],
-      filter: 'all'
+      filter: 'all',
+      currentTab: 'all',
+      idx: '',
+      states: ['all', 'actived', 'completed']
     }
   },
   computed: {
@@ -86,8 +101,9 @@ export default {
     handleDel (id) {
       this.todos.splice(this.todos.findIndex(item => item.id === id), 1)
     },
-    handelToggle (state) {
-      this.filter = state
+    handleChange (value) {
+      console.log(value)
+      this.filter = value;
     }
   }
 }
